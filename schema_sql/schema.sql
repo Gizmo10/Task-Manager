@@ -1,0 +1,11 @@
+CREATE DATABASE IF NOT EXISTS to_do_db;
+
+USE to_do_db;
+
+CREATE TABLE IF NOT EXISTS tasks(
+unique_id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(50) NOT NULL,
+created_at VARCHAR(10) NOT NULL,
+completed_at VARCHAR(10),
+status VARCHAR(15)
+);
