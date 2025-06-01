@@ -22,11 +22,12 @@ services:
     container_name: mysql-container
     restart: always
     ports:
-      - "3307:3306"
+      - "3306:3306"
     networks:
       - springapimysql-net
     volumes:
       - ./schema_sql:/docker-entrypoint-initdb.d
+      - ./mysql-config/my.cnf:/etc/mysql/my.cnf
     environment:
       MYSQL_USER: wanda
       MYSQL_DATABASE: to_do_db
