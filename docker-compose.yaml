@@ -27,6 +27,7 @@ services:
       - springapimysql-net
     volumes:
       - ./schema_sql:/docker-entrypoint-initdb.d
+      - ./data:/var/lib/mysql
       - ./mysql-config/my.cnf:/etc/mysql/my.cnf
     environment:
       MYSQL_USER: wanda
