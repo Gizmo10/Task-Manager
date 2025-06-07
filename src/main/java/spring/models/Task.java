@@ -10,6 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 public class Task {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="unique_id")
     private int unique_id;
     @Column(name="name")
