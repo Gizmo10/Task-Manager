@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS tasks(
-    unique_id int PRIMARY KEY AUTO_INCREMENT,
+    unique_id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     created_at VARCHAR(10) NOT NULL,
     completed_at VARCHAR(10),
