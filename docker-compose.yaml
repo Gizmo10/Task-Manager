@@ -5,34 +5,19 @@ services:
     container_name: spring_container
     restart: always
     ports:
-       - 8081:8081
+      - 8081:8081
     networks:
       - springapimysql-net
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-container:3306/to_do_db
-      SPRING_DATASOURCE_USERNAME: wanda
-      SPRING_DATASOURCE_PASSWORD: password
-    depends_on:
-      - mysqldb
-    volumes:
-      - .m2:/root/.m2
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+      DATABASE_NAME: ${DATABASE_NAME}
 
-  mysqldb:
-    image: "mysql:8.0"
-    container_name: mysql-container
-    restart: always
-    ports:
-      - "3306:3306"
-    networks:
-      - springapimysql-net
-    volumes:
-      - ./schema_sql:/docker-entrypoint-initdb.d
-      - ./data:/var/lib/mysql
-      - ./mysql-config/my.cnf:/etc/mysql/my.cnf
-    environment:
-      MYSQL_USER: wanda
-      MYSQL_DATABASE: to_do_db
-      MYSQL_PASSWORD: password
-      MYSQL_ROOT_PASSWORD: roots
-networks:
-  springapimysql-net:
+  ###   depends_on:
+  ###      - mysqldb
+  ###    volumes:
+  ###     - .m2:/root/.m2
+##networks:
+##  springapimysql-net:
+###

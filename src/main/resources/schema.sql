@@ -1,6 +1,4 @@
-CREATE DATABASE IF NOT EXISTS to_do_db;
-
-USE to_do_db;
+\c koyebdb;
 
 CREATE TABLE IF NOT EXISTS tasks(
     unique_id int PRIMARY KEY AUTO_INCREMENT,
