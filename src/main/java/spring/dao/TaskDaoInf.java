@@ -10,11 +10,11 @@ import java.util.List;
 @Repository("Task")
 public interface TaskDaoInf extends JpaRepository<Task, Integer>, TaskDaoCustomRepo {
 
-    @Query(value = "SELECT * FROM tasks WHERE created_at > (current_date() - interval 7 day)",
+    @Query(value = "SELECT * FROM tasks WHERE created_at > (CURRENT_DATE - interval '7 days')",
             nativeQuery = true)
     List<Task> findAllTasksFromPastSevenDays();
 
-    @Query(value = "SELECT * FROM tasks WHERE created_at > (current_date() - interval 7 day) AND status=?1",
+    @Query(value = "SELECT * FROM tasks WHERE created_at > (CURRENT_DATE - interval '7 days') AND status=?1",
             nativeQuery = true)
     List<Task> findAllCompletedTasksFromPastSevenDays(String status);
 }
